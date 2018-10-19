@@ -1,0 +1,106 @@
+:root {
+  --greenBackground: #34E895;
+  --blackBackground: #2A2A2A;
+  --headerFooterHeight: 50px;
+  --whiteFontColor: #FFFFFF;
+  --margins: 12px;
+  --fontRegular: "Avenir Next Regular";
+  --fontBold: "Avenir Next Demi Bold";
+  --iconImageHeight: 25px;
+} /* missing the fonts required on my computer */
+
+
+/* global styles */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;    
+}
+
+.frame {
+  height: var(--headerFooterHeight);    
+  color: var(--whiteFontColor);
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  color: var(--whiteFontColor);
+  left: 0;  
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;  
+  align-items: center;  
+  width: 33.33%;
+  height: 100%;  
+}
+
+.icon-images {
+  height: var(--iconImageHeight);
+  width: auto;
+}
+
+
+/* header */
+header {      
+  background-color: var(--greenBackground);    
+  font-family: var(--fontBold);  
+  top: 0;  
+  font-size: 17px;
+}
+
+#header-left {
+  float: left;
+}
+
+#header-back-icon {
+  padding-left: var(--margins);
+}
+
+#header-middle {
+  float: left;
+  justify-content: center;
+}
+
+#header-right {
+  justify-content: flex-end;
+}
+
+#header-map-icon {  
+  padding-right: 12px;
+}
+
+/* body */
+.main-body-frame {
+  margin-top: var(--headerFooterHeight);
+}
+
+/* footer */
+footer {
+  background-color: var(--blackBackground);    
+  font-family: var(--fontRegular);  
+  text-align: center;
+  bottom: 0;
+  font-size: 10px;
+}
+
+#footer-left {
+  width: 50%;  
+  height: 100%;
+  float: left;  
+}
+
+#footer-right {
+  width: 50%; 
+  height: 100%;
+  float: right;   
+}

@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
-  render() {
+import Footer from './components/footer';
+import Header from './components/header';
+import MainBody from './components/main-body';
+
+let getRestaurants = async() => {  
+  const response = await fetch('https://s3.amazonaws.com/br-codingexams/restaurants.json');
+  const data = await response.json();  
+  const ret = data;
+  return ret;
+}
+
+class App extends Component {    
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      
+    };
+  }
+
+  render() {    
+    const restaurants = getRestaurants();    
+    console.log( {restaurants} );
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="App">        
+        <Header />    
+        <MainBody />
+        <Footer />
       </div>
     );
   }
 }
 
 export default App;
+
