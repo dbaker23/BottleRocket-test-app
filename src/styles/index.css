@@ -18,6 +18,14 @@
   -moz-osx-font-smoothing: grayscale;    
 }
 
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
 .frame {
   height: var(--headerFooterHeight);    
   color: var(--whiteFontColor);
@@ -56,6 +64,7 @@ header {
   font-family: var(--fontBold);  
   top: 0;  
   font-size: 17px;
+  flex-shrink: 0;
 }
 
 #header-left {
@@ -80,9 +89,14 @@ header {
 }
 
 /* body */
-.main-body-frame {
-  margin-top: var(--headerFooterHeight);
+.main-body-frame {  
+  margin-top: var(--headerFooterHeight);  
+  flex-grow: 1;
+  overflow: auto;
+  min-height: 2em;  
 }
+
+
 
 /* footer */
 footer {
@@ -91,6 +105,7 @@ footer {
   text-align: center;
   bottom: 0;
   font-size: 10px;
+  flex-shrink: 0;
 }
 
 #footer-left {
