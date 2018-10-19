@@ -1,29 +1,18 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import RestaurantDetails from './restaurant-details';
 import gradient from '../webassets/Cuts/cellGradientBackground@2x.png';
 
-const TILE_HEIGHT_DEFAULT = '180px';
-
-const RestaurantListItem =( {name, category, background} ) => {            
+const RestaurantListItem =( {handleClick, restaurant} ) => {                
     const styles = {
-        backgroundImage: `url(${gradient}), url(${background})`,        
+        backgroundImage: `url(${gradient}), url(${restaurant.backgroundImageURL})`,        
     }
     return(
-        <li className='restaurant-list-item' style={styles}>
-            <div>                                
-                <div id='restaurant-list-name' >
-                    {name}
-                </div>
-                <div id='restaurant-list-category'>
-                    {category}
-                </div>                    
-            </div>
+        <li onClick={ () => handleClick(restaurant) }
+            className='restaurant-list-item' 
+            style={styles}>
+            <RestaurantDetails name={restaurant.name} category={restaurant.category} />
         </li>
     );
 };
 
-/* 
-
-                
-                */
 export default RestaurantListItem;

@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 
-import Footer from './components/footer';
+//import Footer from './components/footer';
 import Header from './components/header';
-import MainBody from './components/main-body';
-
-const API_KEY = 'AIzaSyCULvJi6r6sjvF9hEHcISPlrdV5PMzkNDE';
+import GoogleMap from './components/google-map';
+import RestaurantList from './components/restaurant-list';
 
 class App extends Component {    
   constructor(props) {
     super(props)    
 
     this.state = {
+      page: 0,
+      selected: '',
       restaurants: []
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleBackButton = this.handleBackButton.bind(this);
+    this.handleMapButton = this.handleMapButton.bind(this);
   }
 
   componentDidMount() {
     this.getRestaurants();
+    this.setState({
+      selected: this.state.restaurants[0]
+    })
   }
   
   getRestaurants() {  
@@ -32,14 +39,41 @@ class App extends Component {
     });
   }
 
-  render() {       
-    if( this.state.restaurants[0] !== undefined ) {
-      console.log( this.state.restaurants[0].name ); 
-    }
+  handleBackButton() {
+    const pNum = this.state.page === 1? 0 : 1;
+    this.setState({
+      page: pNum
+    });
+  }
+
+  handleMapButton() {
+    this.setState({ page: 1 });
+  }
+
+  handleClick( e ) {
+    this.setState({
+      page: e.page,
+      selected: e.selected
+    });
+  }
+
+  render() {               
     return (
       <div className="App">        
-        <Header page={this.state.page} />    
-        <MainBody restaurants={this.state.restaurants} />        
+        <Header 
+          onBackClick={this.handleBackButton} 
+          onMapClick={this.handleMapButton} 
+          page={this.state.page} />
+
+        <GoogleMap 
+          restaurant={this.state.selected}
+          page={this.state.page} />
+
+        <div className='main-body-frame'>                
+            <RestaurantList 
+              handleClick={selectedRestaurant => this.setState( {page: 1, selected: selectedRestaurant} )}  
+              restaurants={this.state.restaurants} />
+        </div>            
       </div>
     );
   }

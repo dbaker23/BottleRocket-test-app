@@ -5,10 +5,11 @@
   --whiteFontColor: #FFFFFF;
   --grayFontColor: #979797;
   --margins: 12px;
-  --fontRegular: "Avenir Next Regular", "Berlin Sans FB";
-  --fontBold: "Avenir Next Demi Bold", "Berlin Sans FB Demi";
+  --fontRegular: "Avenir Next Regular", "Calibri";
+  --fontBold: "Avenir Next Demi Bold", "Cooper Black";
   --iconImageHeight: 25px;
   --mainBodyTileHeight: 180px;
+  --mapsSpacing: 26px;
 } /* missing the fonts required on my computer */
 
 
@@ -36,14 +37,6 @@
   overflow: hidden;
   color: var(--whiteFontColor);
   left: 0;  
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-  justify-content: space-around;
 }
 
 .header-container {
@@ -90,6 +83,7 @@ header {
   padding-right: 12px;
 }
 
+
 /* body */
 .main-body-frame {  
   margin-top: var(--headerFooterHeight);  
@@ -127,8 +121,58 @@ header {
 }
 
 
+/* drawer */
+#flyout-drawer {
+  width: 100%;
+  height: 100%;
+  margin-top: var(--headerFooterHeight);  
+  position: fixed;  
+  top: 0;
+  left: 0;
+  transition: transform 2s cubic-bezier(0, 0.7, 0, 1);  
+  z-index: 1000;
+  overflow: scroll;
+  background-color: white;
+}
+
+#flyout-drawer.hide {
+  transform: translate3d( -100vw, 0,0  );
+}
+
+#flyout-drawer.show {
+  transform: translate3d( 0vw, 0, 0 );
+}
+
+.restaurant-details {
+  height: 60px;
+  background-color: var(--greenBackground);
+  display: flex;
+  align-items: center;
+}
+
+.location-details {
+  margin-left: var(--margins);
+  margin-top: 16px;
+  font-family: var(--fontRegular);
+  font-size: 16px;
+  color: var(--blackBackground);
+}
+
+.info-spacing {
+  margin-top: var(--mapsSpacing);
+}
+
+
 
 /* footer 
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  justify-content: space-around;
+}
+
 footer {
   background-color: var(--blackBackground);    
   font-family: var(--fontRegular);  

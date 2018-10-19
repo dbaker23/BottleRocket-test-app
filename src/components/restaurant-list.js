@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import RestaurantListItem from './restaurant-list-item';
 
-const RestaurantList = ( props ) => {
-    const restaurantItem = props.restaurants.map( restaurant => {              
+const RestaurantList = ({handleClick, restaurants}) => {
+    const restaurantItem = restaurants.map( restaurant => {              
         const keyName = restaurant.name + restaurant.category;
         return (
             <RestaurantListItem 
-                name={restaurant.name}
-                category={restaurant.category}
-                background={restaurant.backgroundImageURL}
+                handleClick={handleClick}
+                restaurant={restaurant}                
                 key={keyName}
                 />
         );
