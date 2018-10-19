@@ -3,9 +3,10 @@
   --blackBackground: #2A2A2A;
   --headerFooterHeight: 50px;
   --whiteFontColor: #FFFFFF;
+  --grayFontColor: #979797;
   --margins: 12px;
-  --fontRegular: "Avenir Next Regular";
-  --fontBold: "Avenir Next Demi Bold";
+  --fontRegular: "Avenir Next Regular", "Berlin Sans FB";
+  --fontBold: "Avenir Next Demi Bold", "Berlin Sans FB Demi";
   --iconImageHeight: 25px;
 } /* missing the fonts required on my computer */
 
@@ -91,9 +92,34 @@ header {
 /* body */
 .main-body-frame {  
   margin-top: var(--headerFooterHeight);  
+  margin-bottom: var(--headerFooterHeight);    
   flex-grow: 1;
   overflow: auto;
   min-height: 2em;  
+}
+
+.restaurant-list {
+  height: 180px;
+  width: 100%;    
+  display: flex;
+  align-items: flex-end;
+  background-size: 100%;
+}
+
+#restaurant-list-name {
+  color: var(--whiteFontColor);
+  padding-left: var(--margins);
+  padding-bottom: 6px;    
+  font-family: var(--fontBold);
+  font-size: 16px;  
+}
+
+#restaurant-list-category {
+  color: var(--whiteFontColor);
+  padding-left: var(--margins);
+  padding-bottom: 6px;    
+  font-family: var(--fontRegular);
+  font-size: 12px;
 }
 
 
@@ -114,8 +140,15 @@ footer {
   float: left;  
 }
 
+#gray-footer {
+  width: 50%;
+  height: 100%;
+  float: left;
+  color: var(--grayFontColor);
+  filter: opacity(.4);
+}
+
 #footer-right {
   width: 50%; 
-  height: 100%;
-  float: right;   
+  height: 100%;  
 }
