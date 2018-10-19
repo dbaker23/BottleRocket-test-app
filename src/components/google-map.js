@@ -1,47 +1,49 @@
-import React from 'react';
-import RestaurantDetails from './restaurant-details';
-import '../styles/map.css';
+import React, { Component } from 'react';
+
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 const API_KEY = 'AIzaSyCULvJi6r6sjvF9hEHcISPlrdV5PMzkNDE';
 
-const HIDE_DRAWER = 'hide';
-const SHOW_DRAWER = 'show';
+class GoogleMap extends Component {                
 
-const GoogleMap =({restaurant, page}) => {    
-    let visibility = page === 0 ? HIDE_DRAWER : SHOW_DRAWER;
-    let restaurantDetails = '';
-    let twitterInformation = '';
+    render() {    
+        const mapStyles = {
+            width: '100%',
+            height: '180px'                    
+        };
 
-    if( !restaurant ) {
-        return  <div id='flyout-drawer' className={visibility}>No restaurant selected!</div>;
+        if( !this.props.restaurant.location.lat || !this.props.restaurant.location.lng ) {
+            return <div>Loading...</div>;
+        }
 
-    } else {
-        restaurantDetails = <RestaurantDetails name={restaurant.name} category={restaurant.category} />        
-        if( restaurant.contact.twitter ) {
-            twitterInformation = <a href={`https://twitter.com/${restaurant.contact.twitter}`} >@{restaurant.contact.twitter}</a>
-        }    
-            
-        return (
-            <div id='flyout-drawer' className={visibility}>
-                <div className='restaurant-list-item'>                    
-                    `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=initMap`
-                </div>
-                <div className='restaurant-details'>
-                    {restaurantDetails}
-                </div>
-                <div className='location-details'>                    
-                    <div>{restaurant.location.formattedAddress[0]}</div>
-                    <div>{restaurant.location.formattedAddress[1]}</div>                    
-                    <div className='info-spacing'>
-                        <a href={`tel:+1${restaurant.contact.phone}`} >{restaurant.contact.formattedPhone}</a>
-                    </div>
-                    <div className='info-spacing'>
-                        {twitterInformation}                    
-                    </div>
-                </div>
+        return ( 
+            <div className='map-container'>
+            <Map
+                style={mapStyles}
+                google={this.props.google} 
+                zoom={14}
+                initialenter={{
+                    lat: this.props.restaurant.location.lat,
+                    lng: this.props.restaurant.location.lng
+                }}
+                center={{
+                    lat: this.props.restaurant.location.lat,
+                    lng: this.props.restaurant.location.lng
+                }}
+                onClick={this.onMapClicked}>
+                <Marker 
+                    onClick={this.onMarkerClick} 
+                    name={this.props.restaurant.name} 
+                    position={{
+                        lat: this.props.restaurant.location.lat,
+                        lng: this.props.restaurant.location.lng
+                    }}/>
+            </Map>                                
             </div>
-        );   
-    } 
+        );           
+    }
 };
 
-export default GoogleMap;
+export default GoogleApiWrapper({     
+    apiKey: API_KEY    
+}) ( GoogleMap )

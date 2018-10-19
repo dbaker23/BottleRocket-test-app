@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //import Footer from './components/footer';
 import Header from './components/header';
-import GoogleMap from './components/google-map';
+import MapContainer from './components/map-container';
 import RestaurantList from './components/restaurant-list';
 
 class App extends Component {    
@@ -65,7 +65,7 @@ class App extends Component {
           onMapClick={this.handleMapButton} 
           page={this.state.page} />
 
-        <GoogleMap 
+        <MapContainer 
           restaurant={this.state.selected}
           page={this.state.page} />
 
