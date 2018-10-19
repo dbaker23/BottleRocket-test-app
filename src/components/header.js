@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import backButton from '../webassets/Cuts/ic_webBack@2x.png';
+//import backButton from '../webassets/Cuts/ic_webBack@2x.png';
 import map from '../webassets/Cuts/icon_map@2x.png';
 
 const middleText = 'Lunch Tyme';
@@ -8,7 +8,7 @@ const middleText = 'Lunch Tyme';
 const Header = ({page}) => {    
     let backIcon = <div></div>;
 
-    // lunch tyme page
+    /* lunch tyme page
     if( page === 1 ) {
         backIcon = <div></div>;
 
@@ -19,7 +19,7 @@ const Header = ({page}) => {
     // about us page
     } else {
         backIcon = <div></div>;
-    }
+    } */
     
     return (
         <header className='frame'>

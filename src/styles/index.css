@@ -8,6 +8,7 @@
   --fontRegular: "Avenir Next Regular", "Berlin Sans FB";
   --fontBold: "Avenir Next Demi Bold", "Berlin Sans FB Demi";
   --iconImageHeight: 25px;
+  --mainBodyTileHeight: 180px;
 } /* missing the fonts required on my computer */
 
 
@@ -92,26 +93,29 @@ header {
 /* body */
 .main-body-frame {  
   margin-top: var(--headerFooterHeight);  
-  margin-bottom: var(--headerFooterHeight);    
   flex-grow: 1;
   overflow: auto;
-  min-height: 2em;  
 }
 
-.restaurant-list {
-  height: 180px;
-  width: 100%;    
+.restaurant-list-item {  
+  width: 100%;
   display: flex;
   align-items: flex-end;
   background-size: 100%;
+  height: var(--mainBodyTileHeight);
+}
+
+#list-background {
+  width: 100%; 
+  height: 100%;
+  position: relative;
 }
 
 #restaurant-list-name {
   color: var(--whiteFontColor);
-  padding-left: var(--margins);
-  padding-bottom: 6px;    
+  padding-left: var(--margins);  
   font-family: var(--fontBold);
-  font-size: 16px;  
+  font-size: 16px;   
 }
 
 #restaurant-list-category {
@@ -124,7 +128,7 @@ header {
 
 
 
-/* footer */
+/* footer 
 footer {
   background-color: var(--blackBackground);    
   font-family: var(--fontRegular);  
@@ -152,3 +156,4 @@ footer {
   width: 50%; 
   height: 100%;  
 }
+*/

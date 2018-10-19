@@ -4,12 +4,13 @@ import Footer from './components/footer';
 import Header from './components/header';
 import MainBody from './components/main-body';
 
+const API_KEY = 'AIzaSyCULvJi6r6sjvF9hEHcISPlrdV5PMzkNDE';
+
 class App extends Component {    
   constructor(props) {
     super(props)    
 
     this.state = {
-      page: 1,
       restaurants: []
     };
   }
@@ -38,8 +39,7 @@ class App extends Component {
     return (
       <div className="App">        
         <Header page={this.state.page} />    
-        <MainBody restaurants={this.state.restaurants} />
-        <Footer page={this.state.page} />
+        <MainBody restaurants={this.state.restaurants} />        
       </div>
     );
   }

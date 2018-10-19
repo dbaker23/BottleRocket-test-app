@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import RestaurantListItem from './restaurant-list-item';
 
 const RestaurantList = ( props ) => {
-    const restaurantItem = props.restaurants.map( restaurant => {
+    const restaurantItem = props.restaurants.map( restaurant => {              
+        const keyName = restaurant.name + restaurant.category;
         return (
             <RestaurantListItem 
                 name={restaurant.name}
                 category={restaurant.category}
                 background={restaurant.backgroundImageURL}
-                key= {restaurant.name}
+                key={keyName}
                 />
         );
     });
