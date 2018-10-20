@@ -22,7 +22,7 @@ class GoogleMap extends Component {
                 style={mapStyles}
                 google={this.props.google} 
                 zoom={14}
-                initialenter={{
+                initialCenter={{
                     lat: this.props.restaurant.location.lat,
                     lng: this.props.restaurant.location.lng
                 }}

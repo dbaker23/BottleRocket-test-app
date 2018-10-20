@@ -4,7 +4,7 @@ import gradient from '../webassets/Cuts/cellGradientBackground@2x.png';
 
 const RestaurantListItem =( {handleClick, restaurant} ) => {                
     const styles = {
-        backgroundImage: `url(${gradient}), url(${restaurant.backgroundImageURL})`,        
+        backgroundImage: `url(${gradient}), url(${restaurant.backgroundImageURL})`        
     }
     return(
         <li onClick={ () => handleClick(restaurant) }

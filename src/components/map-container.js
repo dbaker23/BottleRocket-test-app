@@ -15,11 +15,13 @@ class MapContainer extends Component {
         if( !this.props.restaurant ) {
             return  <div id='flyout-drawer' className={visibility}>No restaurant selected!</div>;
 
-        } else {                    
-            if( this.props.restaurant.contact && this.props.restaurant.twitter ) {
+        } else {
+            if( this.props.restaurant.contact ) {                             
                 phoneInformation = <a href={`tel:+1${this.props.restaurant.contact.phone}`} >{this.props.restaurant.contact.formattedPhone}</a>
-                twitterInformation = <a href={`https://twitter.com/${this.props.restaurant.contact.twitter}`} >@{this.props.restaurant.contact.twitter}</a>
-            }    
+                if( this.props.restaurant.contact.twitter ) {                
+                    twitterInformation = <a href={`https://twitter.com/${this.props.restaurant.contact.twitter}`} >@{this.props.restaurant.contact.twitter}</a>
+                }    
+            }
 
             return (
                 <div id='flyout-drawer' className={visibility}>                       

@@ -28,6 +28,10 @@
   flex-wrap: nowrap;
 }
 
+@media only screen and (min-width: 1920px) {      
+  
+}
+
 .frame {
   height: var(--headerFooterHeight);    
   color: var(--whiteFontColor);
@@ -89,6 +93,15 @@ header {
   overflow: auto;  
 }
 
+@media only screen and (min-width: 1439px) {
+  .main-body-frame {
+    margin-top: var(--headerFooterHeight);    
+    overflow: auto;  
+    align-self: flex-end;
+    width: 60%;
+  }
+}
+
 .restaurant-list-item {    
   width: 100%;
   display: flex;
@@ -97,7 +110,7 @@ header {
   height: var(--mainBodyTileHeight);    
 }
 
-@media only screen and (min-width: 767px) {      
+@media only screen and (min-width: 730px) {      
   ul {
     columns: 2;
     column-gap: 0;    
@@ -105,6 +118,7 @@ header {
   ul li {
     float: left;
     -webkit-column-break-inside: avoid; 
+    page-break-inside: avoid;    
   }
 }
 
@@ -150,6 +164,22 @@ header {
 
 #flyout-drawer.show {
   transform: translate3d( 0vw, 0, 0 );
+}
+
+@media only screen and (min-width: 1439px) {
+  #flyout-drawer {
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+  } 
+
+  #flyout-drawer.hide {
+    transform: translate3d( 0vw, 0,0  );
+  }
+  
+  #flyout-drawer.show {
+    transform: translate3d( 0vw, 0, 0 );
+  }
 }
 
 .restaurant-details {
